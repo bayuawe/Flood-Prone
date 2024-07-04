@@ -1,6 +1,6 @@
-import EditLayout from "@/Components/Layouts/VillageEditLayout";
 import { Head } from "@inertiajs/react";
 import React from "react";
+import FloodEditLayout from "@/Components/Layouts/FloodEditLayout";
 
 export default function Edit({ auth, village = {}, csrf_token }) {
     const initialData = {
@@ -11,13 +11,13 @@ export default function Edit({ auth, village = {}, csrf_token }) {
     };
 
     return (
-        <EditLayout
+        <FloodEditLayout
             auth={auth}
             title="Edit Village"
             csrf_token={csrf_token}
             initialData={initialData}
         >
             <Head title="Edit Village" />
-        </EditLayout>
+        </FloodEditLayout>
     );
 }

@@ -9,18 +9,18 @@ class Flood extends Model
 {
     use HasFactory;
 
-    protected $table = 'flood_tables';
+    protected $table = 'floods';
 
     protected $fillable = [
-        'village_id',
-        'total_flood_accident',
+        'alternative_id',
+        'flood_accident',
         'topography_village',
-        'total_building',
+        'building',
         'year',
     ];
 
     public function village()
     {
-        return $this->belongsTo(Village::class);
+        return $this->belongsTo(Village::class, 'alternative_id', 'alternative');
     }
 }

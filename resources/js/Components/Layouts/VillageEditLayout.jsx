@@ -1,9 +1,9 @@
 import React from "react";
 import { Head } from "@inertiajs/react";
 import AuthenticatedLayout from "@/Components/Layouts/AuthenticatedLayout";
-import FormCreateVillage from "@/Components/Fragment/FormCreateVillage";
+import FormEditVillage from "@/Components/Fragments/FormEditVillage";
 
-const CreateLayout = ({ auth, title, csrf_token, initialData = {} }) => {
+const VillageEditLayout = ({ auth, title, csrf_token, initialData = {} }) => {
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -17,7 +17,7 @@ const CreateLayout = ({ auth, title, csrf_token, initialData = {} }) => {
             <div className="py-12">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-white shadow sm:rounded-lg overflow-hidden">
-                        <FormCreateVillage
+                        <FormEditVillage
                             csrf_token={csrf_token}
                             initialData={initialData}
                         />
@@ -28,4 +28,4 @@ const CreateLayout = ({ auth, title, csrf_token, initialData = {} }) => {
     );
 };
 
-export default CreateLayout;
+export default VillageEditLayout;

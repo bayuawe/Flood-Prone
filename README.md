@@ -1,66 +1,77 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🌊 Flood-Prone Areas Detection using K-Means Method 🌊
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Selamat datang di proyek deteksi daerah rawan banjir menggunakan metode K-Means! 🚀 Proyek ini adalah aplikasi web yang dirancang untuk mendeteksi dan memvisualisasikan daerah rawan banjir menggunakan algoritma clustering K-Means. Dibangun dengan Laravel sebagai framework backend dan Inertia.js dengan React untuk frontend, aplikasi ini memberikan pengalaman pengguna yang intuitif dan interaktif untuk menganalisis dan mengidentifikasi wilayah yang berisiko banjir.
 
-## About Laravel
+## ✨ Fitur-Fitur Unggulan ✨
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+-   🔒 **Autentikasi Pengguna**: Sistem login dan registrasi yang aman.
+-   📊 **Manajemen Data**: Unggah dan kelola data geografis dan hidrologis. (segera hadir)
+-   📈 **Clustering K-Means**: Terapkan algoritma K-Means untuk mengidentifikasi cluster daerah rawan banjir. (segera hadir)
+-   🗺️ **Peta Interaktif**: Visualisasikan cluster dan daerah rawan banjir pada peta interaktif. (segera hadir)
+-   📑 **Pelaporan**: Hasilkan dan unduh laporan daerah rawan banjir yang teridentifikasi. (segera hadir)
+-   📱 **Desain Responsif**: Dioptimalkan untuk perangkat desktop dan mobile. (segera hadir)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Teknologi yang Digunakan
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   **Laravel**: Framework aplikasi web yang kuat, modern, dan aman.
+-   **Inertia.js**: Framework JavaScript untuk membangun aplikasi web modern.
+-   **React**: Library JavaScript untuk membangun antarmuka pengguna.
+-   **Tailwind CSS**: Framework CSS utility-first untuk membangun aplikasi web modern.
+-   **MySQL**: Sistem manajemen basis data relasional.
+-   **Vite**: Alat build frontend modern.
 
-## Learning Laravel
+## 🚀 Instalasi
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Ikuti langkah-langkah berikut untuk menginstal dan menjalankan proyek ini di mesin lokal Anda:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Clone repositori ini:**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    ```bash
+    git clone https://github.com/bayuawe/laravel_kmeans.git
+    ```
 
-## Laravel Sponsors
+2. **Masuk ke direktori proyek:**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    ```bash
+    cd laravel_kmeans
+    ```
 
-### Premium Partners
+3. **Instal dependensi PHP menggunakan Composer:**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+    ```bash
+    composer install
+    ```
 
-## Contributing
+4. **Instal dependensi JavaScript menggunakan npm:**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    ```bash
+    npm install
+    ```
 
-## Code of Conduct
+5. **Generate kunci aplikasi:**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    ```bash
+    php artisan key:generate
+    ```
 
-## Security Vulnerabilities
+6. **Jalankan migrasi dan seeding database:**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    ```bash
+    php artisan migrate --seed
+    ```
 
-## License
+7. **Jalankan server pengembangan:**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```bash
+    npm run dev
+    ```
+
+Sekarang Anda siap untuk mulai menggunakan aplikasi ini! 🎉
+
+### 🤝 Kontribusi
+
+Kontribusi sangat diterima! Silakan fork repositori ini dan buat pull request dengan perubahan Anda.
+
+## 📜 Lisensi
+
+Framework Laravel adalah perangkat lunak open-source yang dilisensikan di bawah [lisensi MIT](https://opensource.org/licenses/MIT).

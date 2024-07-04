@@ -1,4 +1,4 @@
-import FormVillageLayout from "@/Components/Layouts/CreateLayout";
+import FormVillageLayout from "@/Components/Layouts/VillageCreateLayout";
 import { Head, Link, useForm } from "@inertiajs/react";
 import React from "react";
 

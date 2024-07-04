@@ -1,4 +1,4 @@
-import TextInput from "@/Components/Element/TextInput";
+import TextInput from "@/Components/Elements/TextInput";
 
 export default function CentroidLayout({
     id,

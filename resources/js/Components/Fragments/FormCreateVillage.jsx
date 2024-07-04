@@ -1,26 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm } from "@inertiajs/react";
-import TextInput from "@/Components/Element/TextInput";
-import PrimaryButton from "@/Components/Element/PrimaryButton";
+import TextInput from "@/Components/Elements/TextInput";
+import PrimaryButton from "@/Components/Elements/PrimaryButton";
 
-const FormEditVillage = ({ csrf_token, initialData = {} }) => {
-    const { data, setData, put, processing, errors, reset } = useForm({
+const FormCreateVillage = ({ csrf_token, initialData = {} }) => {
+    const { data, setData, post, processing, errors } = useForm({
         alternative: initialData.alternative || "",
         village_code: initialData.village_code || "",
         name: initialData.name || "",
     });
 
-    useEffect(() => {
-        reset({
-            alternative: initialData.alternative || "",
-            village_code: initialData.village_code || "",
-            name: initialData.name || "",
-        });
-    }, [initialData]);
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        put(route("village.update", { id: initialData.id }));
+        post(route("village.store"));
     };
 
     return (
@@ -62,15 +54,11 @@ const FormEditVillage = ({ csrf_token, initialData = {} }) => {
                     className="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring focus:border-blue-300"
                 />
             </div>
-            <PrimaryButton
-                onClick={handleSubmit}
-                className="bg-blue-500"
-                disabled={processing}
-            >
-                Simpan Perubahan
+            <PrimaryButton type="submit" disabled={processing}>
+                Save
             </PrimaryButton>
         </form>
     );
 };
 
-export default FormEditVillage;
+export default FormCreateVillage;

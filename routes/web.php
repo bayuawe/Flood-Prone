@@ -24,7 +24,7 @@ Route::prefix('/')->middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('village', VillageController::class);
 
-    Route::get('/flood', [FloodController::class, 'index'])->name('flood.index');
+    Route::resource('flood', FloodController::class);
 
     Route::get('/cluster', [ClusterController::class, 'index'])->name('cluster.index');
     Route::post('/cluster', [ClusterController::class, 'cluster'])->name('cluster.process');

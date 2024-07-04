@@ -3,15 +3,21 @@ import AuthenticatedLayout from "@/Components/Layouts/AuthenticatedLayout";
 import Table from "@/Components/Elements/Table";
 import PrimaryButton from "@/Components/Elements/PrimaryButton";
 
-export default function VillageLayout({ auth, data }) {
-    const columns = ["village_code", "name", "alternative"];
+export default function FloodLayout({ auth, data = [] }) {
+    const columns = [
+        "alternative_id",
+        "flood_accident",
+        "topography_village",
+        "building",
+        "year",
+    ];
 
     return (
         <AuthenticatedLayout
-            user={auth.user} // Pastikan properti user diteruskan di sini
+            user={auth.user}
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Village
+                    Flood
                 </h2>
             }
         >
@@ -22,15 +28,15 @@ export default function VillageLayout({ auth, data }) {
                             <div className="flex justify-end mb-4">
                                 <PrimaryButton
                                     className="bg-blue-500"
-                                    onClick={() =>
-                                        (window.location.href =
-                                            route("village.create"))
-                                    }
+                                    onClick={() => {
+                                        window.location.href =
+                                            route("flood.create");
+                                    }}
                                 >
-                                    Tambahkan Desa
+                                    Tambahkan Data Banjir
                                 </PrimaryButton>
                             </div>
-                            {data.length > 0 ? (
+                            {Array.isArray(data) && data.length > 0 ? (
                                 <Table columns={columns} data={data} />
                             ) : (
                                 <div className="text-center py-4">

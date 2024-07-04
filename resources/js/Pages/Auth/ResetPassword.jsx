@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import GuestLayout from "@/Components/Layouts/GuestLayout";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
-import PrimaryButton from "@/Components/Element/PrimaryButton";
-import TextInput from "@/Components/Element/TextInput";
+import PrimaryButton from "@/Components/Elements/PrimaryButton";
+import TextInput from "@/Components/Elements/TextInput";
 import { Head, useForm } from "@inertiajs/react";
 
 export default function ResetPassword({ token, email }) {

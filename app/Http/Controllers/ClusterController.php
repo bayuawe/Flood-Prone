@@ -30,25 +30,61 @@ class ClusterController extends Controller
         foreach ($centroids as &$centroid) {
             if (empty($centroid[0]) && empty($centroid[1]) && empty($centroid[2])) {
                 $centroid = [
-                    rand(1, 100), // Ganti dengan logika yang sesuai
-                    rand(1, 100),
+                    rand(1, 10), // Ganti dengan logika yang sesuai
+                    rand(1, 4),
                     rand(1, 100),
                 ];
             }
         }
 
         // Proses K-Means Clustering
-        // ...
+        $clusters = $this->performClustering($floods, $centroids);
 
         return Inertia::render('Cluster/Result', [
             'clusters' => $clusters,
         ]);
     }
 
-    private function performClustering($floods)
+    private function performClustering($floods, $centroids)
     {
-        // Implementasi K-Means Clustering
-        // ...
+        $maxIterations = 100;
+        $clusters = [];
+        $previousCentroids = [];
+
+        for ($i = 0; $i < $maxIterations; $i++) {
+            // Assign points to the nearest centroid
+            foreach ($floods as $flood) {
+                $distances = array_map(function ($centroid) use ($flood) {
+                    return sqrt(
+                        pow($flood->flood_accident - $centroid[0], 2) +
+                            pow($flood->topography_village - $centroid[1], 2) +
+                            pow($flood->building - $centroid[2], 2)
+                    );
+                }, $centroids);
+
+                $minDistanceIndex = array_keys($distances, min($distances))[0];
+                $clusters[$minDistanceIndex][] = $flood;
+            }
+
+            // Calculate new centroids
+            $newCentroids = [];
+            foreach ($clusters as $index => $cluster) {
+                $newCentroids[$index] = [
+                    array_sum(array_column($cluster, 'flood_accident')) / count($cluster),
+                    array_sum(array_column($cluster, 'topography_village')) / count($cluster),
+                    array_sum(array_column($cluster, 'building')) / count($cluster),
+                ];
+            }
+
+            // Check for convergence
+            if ($newCentroids == $centroids) {
+                break;
+            }
+
+            $centroids = $newCentroids;
+            $clusters = [];
+        }
+
         return $clusters;
     }
 }
