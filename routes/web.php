@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\FloodController;
+use App\Http\Controllers\ClusterController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VillageController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -19,13 +22,12 @@ Route::prefix('/')->middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::get('village', function () {
-        return Inertia::render('Village');
-    })->name('village');
+    Route::resource('village', VillageController::class);
 
-    Route::get('flood', function () {
-        return Inertia::render('Flood');
-    })->name('flood');
+    Route::get('/flood', [FloodController::class, 'index'])->name('flood.index');
+
+    Route::get('/cluster', [ClusterController::class, 'index'])->name('cluster.index');
+    Route::post('/cluster', [ClusterController::class, 'cluster'])->name('cluster.process');
 });
 
 Route::middleware('auth')->group(function () {

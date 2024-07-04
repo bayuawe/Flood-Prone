@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ApplicationLogo from "@/Components/ApplicationLogo";
-import Dropdown from "@/Components/Dropdown";
+import ApplicationLogo from "@/Components/Element/ApplicationLogo";
+import Dropdown from "@/Components/Element/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
@@ -29,16 +29,22 @@ export default function Authenticated({ user, header, children }) {
                                     Dashboard
                                 </NavLink>
                                 <NavLink
-                                    href={route("village")}
-                                    active={route().current("village")}
+                                    href={route("village.index")}
+                                    active={route().current("village.index")}
                                 >
                                     Village
                                 </NavLink>
                                 <NavLink
-                                    href={route("flood")}
-                                    active={route().current("flood")}
+                                    href={route("flood.index")}
+                                    active={route().current("flood.index")}
                                 >
                                     Flood
+                                </NavLink>
+                                <NavLink
+                                    href={route("cluster.index")}
+                                    active={route().current("cluster.index")}
+                                >
+                                    Cluster
                                 </NavLink>
                             </div>
                         </div>
